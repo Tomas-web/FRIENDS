@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "./home/home/home.component";
-import {RouletteComponent} from "./roulette/roulette.component";
-import {SessionComponent} from "./session/session.component";
+import {HomeComponent} from './home/home.component';
+import {RouletteComponent} from './roulette/roulette.component';
+import {SessionComponent} from './session/session.component';
 
 const routes: Routes = [
   {
@@ -13,14 +13,35 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+    ]
   },
   {
     path: 'roulette',
     component: RouletteComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'roulette',
+        pathMatch: 'full'
+      },
+    ]
   },
   {
     path: 'session',
     component: SessionComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'session',
+        pathMatch: 'full'
+      },
+    ]
   }
 ];
 

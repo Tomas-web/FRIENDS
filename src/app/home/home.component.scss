@@ -1,0 +1,34 @@
+.img-header {
+  position: relative;
+  width: 100%;
+  height: 57%;
+  display: flex;
+  justify-content: center;
+
+  .friends-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-text {
+    position: absolute;
+    margin-top: 3rem;
+  }
+}
+
+.content {
+  max-width: 584px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  position: relative;
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+}
