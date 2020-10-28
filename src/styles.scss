@@ -43,8 +43,19 @@ h1 {
   font-weight: normal;
   font-size: 144px;
   line-height: 120px;
-  margin: 0;
   color: #000000;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Ranga-Regular', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 73px;
+  text-align: center;
+  color: #000000;
+  margin: 0;
 }
 
 h4 {
@@ -84,4 +95,28 @@ p {
   padding: 10px;
   width: 248px;
   outline: none;
+  transition: 0.3s;
+
+  &:hover {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #8FD7FF;
+  }
+}
+
+.back-button-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 10;
+
+  .back-button {
+    background: #D3EFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    margin-right: 0.5rem;
+  }
 }

@@ -1,0 +1,23 @@
+.roulette-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .roulette-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .roulette-arrow {
+      margin-bottom: -2.5rem;
+      z-index: 10;
+    }
+
+    .roulette {
+      max-height: 480px;
+      margin-bottom: 2rem;
+    }
+  }
+}
