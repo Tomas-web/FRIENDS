@@ -17,4 +17,16 @@ export class RouletteComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  spin() {
+    const roulette = document.getElementById('roulette');
+    roulette.removeAttribute('style');
+    const deg = 500 + Math.round(Math.random() * 500);
+
+    const css = '-webkit-transform: rotate(' + deg + 'deg);';
+
+    roulette.setAttribute(
+      'style', css
+    );
+  }
+
 }

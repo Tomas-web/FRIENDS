@@ -18,6 +18,7 @@
     .roulette {
       max-height: 480px;
       margin-bottom: 2rem;
+      transition: transform 2s ease-out;
     }
   }
 }
