@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {RouletteComponent} from './roulette/roulette.component';
 import {SessionComponent} from './session/session.component';
+import {WaitingComponent} from './waiting-component/waiting.component';
+import {LeaderWaitingComponent} from './leader-waiting/leader-waiting.component';
 
 const routes: Routes = [
   {
@@ -37,10 +39,13 @@ const routes: Routes = [
     component: SessionComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'session',
-        pathMatch: 'full'
+        path: ':id/waiting',
+        component: WaitingComponent,
       },
+      {
+        path: ':id/leader',
+        component: LeaderWaitingComponent,
+      }
     ]
   }
 ];

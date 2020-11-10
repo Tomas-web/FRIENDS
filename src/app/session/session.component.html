@@ -1,24 +1,28 @@
-<div class="background-img">
-  <img class="bg" src="../../assets/bg-image.png" alt="background-image" />
-</div>
-<div class="back-button-block">
-  <div (click)="goToHomePage()" class="back-button">
-    <img style="height: 25px; width: 25px;" src="assets/arrow-back.svg" alt="arrow" />
+<ng-container *ngIf="showSessionCreate">
+  <div class="background-img">
+    <img class="bg" src="../../assets/bg-image.png" alt="background-image" />
   </div>
-  <h4>F.R.I.E.N.D.S</h4>
-</div>
+  <div class="back-button-block">
+    <div (click)="goToHomePage()" class="back-button">
+      <img style="height: 25px; width: 25px;" src="assets/arrow-back.svg" alt="arrow" />
+    </div>
+    <h4>F.R.I.E.N.D.S</h4>
+  </div>
 
-<div class="content">
-  <h2 style="max-width: 850px; margin-top: 2rem; margin-bottom: 5rem;">Only one key friend is enough for a circle of friends to create a common code for other friends to join the survey.</h2>
-  <div class="blocks">
-    <div class="block">
-      <h2 style="margin-bottom: 3rem;">I'm a main friend and I will share the code</h2>
-      <button class="button">CREATE CODE</button>
-    </div>
-    <div class="block">
-      <h2 style="margin-bottom: 1rem;">I'm a friend with a code</h2>
-      <input class="session-input" type="text" placeholder="Enter the code here">
-      <button class="button">CONNECT</button>
+  <div class="content">
+    <h2 style="max-width: 850px; margin-top: 2rem; margin-bottom: 5rem;">Only one key friend is enough for a circle of friends to create a common code for other friends to join the survey.</h2>
+    <div class="blocks">
+      <div class="block">
+        <h2 style="margin-bottom: 3rem;">I'm a main friend and I will share the code</h2>
+        <button (click)="navigateToLeaderWaiting()" class="button">CREATE CODE</button>
+      </div>
+      <div class="block">
+        <h2 style="margin-bottom: 1rem;">I'm a friend with a code</h2>
+        <input class="session-input" type="text" placeholder="Enter the code here">
+        <button (click)="navigateToWaiting()" class="button">CONNECT</button>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+<router-outlet (activate)="showSessionCreate = false;" (deactivate)="showSessionCreate = true;"></router-outlet>

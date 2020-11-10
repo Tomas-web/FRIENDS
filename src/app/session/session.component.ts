@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-session',
@@ -8,13 +8,25 @@ import {Router} from '@angular/router';
 })
 export class SessionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  showSessionCreate: boolean;
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.showSessionCreate = true;
+  }
 
   ngOnInit(): void {
   }
 
   goToHomePage() {
-    this.router.navigate(['home']);
+    this.router.navigate(['home']).then();
+  }
+
+  navigateToWaiting() {
+    this.router.navigate(['1/waiting'], {relativeTo: this.route}).then();
+  }
+
+  navigateToLeaderWaiting() {
+    this.router.navigate(['1/leader'], {relativeTo: this.route}).then();
   }
 
 }

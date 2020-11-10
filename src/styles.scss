@@ -120,3 +120,59 @@ p {
     margin-right: 0.5rem;
   }
 }
+
+.waiting-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  h5 {
+    font-family: 'Ranga-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 70px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    font-family: 'Ranga-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 105px;
+    text-align: center;
+    color: #F51111;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-family: 'Ranga-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 89.6703px;
+    line-height: 131px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+}
+
+.session-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  z-index: 10;
+  margin-right: 0.5rem;
+
+  .red {
+    color: #F51111;
+  }
+}
