@@ -1,0 +1,29 @@
+<div class="background-img">
+  <img class="bg" src="../../assets/bg-image.png" alt="background-image" />
+</div>
+<div style="margin-left: 0.5rem;" class="back-button-block">
+  <h4>F.R.I.E.N.D.S</h4>
+</div>
+<div class="session-code">
+  <h4>CODE: <span class="red">FRN735</span></h4>
+</div>
+
+<div class="quiz-content">
+  <h2 style="margin-bottom: 1rem;">What kind of cuisine would you like to eat?</h2>
+  <form style="margin-bottom: 1rem;" *ngIf="form" novalidate id="form" [formGroup]="form" (ngSubmit)="checkAnswers()">
+    <div class="checkbox-grid">
+      <div role="menuitem" *ngFor="let control of form?.controls?.answers['controls']; let i = index;"
+           [formGroup]="control">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" formControlName="checkbox" class="custom-control-input"
+                 [attr.id]="'Group' + i" [attr.name]="'Group' + i"
+                 [checked]="selectedAnswers[control.controls?.name.value]?.selected"
+                 (change)="onClickAnswer(control.controls?.name?.value)" required />
+          <label class="custom-control-label" style="width: 100%;"
+                 [attr.for]="'Group' + i">{{control.controls?.name.value}}</label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button type="submit" form="form" class="button">NEXT</button>
+</div>

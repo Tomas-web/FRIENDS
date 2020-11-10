@@ -5,6 +5,7 @@ import {RouletteComponent} from './roulette/roulette.component';
 import {SessionComponent} from './session/session.component';
 import {WaitingComponent} from './waiting-component/waiting.component';
 import {LeaderWaitingComponent} from './leader-waiting/leader-waiting.component';
+import {SessionStartedComponent} from './session-started/session-started.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: ':id/leader',
         component: LeaderWaitingComponent,
+      },
+      {
+        path: ':id/started',
+        component: SessionStartedComponent,
       }
     ]
   }

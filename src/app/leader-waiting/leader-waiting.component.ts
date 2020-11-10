@@ -17,4 +17,8 @@ export class LeaderWaitingComponent implements OnInit {
     this.router.navigate(['session']).then();
   }
 
+  startQuiz(): any {
+    return this.router.navigate(['../started'], {relativeTo: this.route});
+  }
+
 }

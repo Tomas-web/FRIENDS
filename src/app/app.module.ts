@@ -8,6 +8,8 @@ import { SessionComponent } from './session/session.component';
 import { RouletteComponent } from './roulette/roulette.component';
 import { WaitingComponent } from './waiting-component/waiting.component';
 import { LeaderWaitingComponent } from './leader-waiting/leader-waiting.component';
+import { SessionStartedComponent } from './session-started/session-started.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { LeaderWaitingComponent } from './leader-waiting/leader-waiting.componen
     SessionComponent,
     RouletteComponent,
     WaitingComponent,
-    LeaderWaitingComponent
+    LeaderWaitingComponent,
+    SessionStartedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

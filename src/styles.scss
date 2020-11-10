@@ -176,3 +176,90 @@ p {
     color: #F51111;
   }
 }
+
+.quiz-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .checkbox-grid {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+
+.custom-control {
+  position: relative;
+  min-height: 1.5rem;
+  padding-left: 3.5rem;
+  margin-bottom: .5rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  transition: .2s;
+
+  .custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+  }
+
+  .custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+    font-family: 'Ranga-Regular', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 33px;
+    line-height: 28px;
+    color: #000000;
+    background: #C1EEF4;
+    text-align: center;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    padding: 8px;
+    min-width: 200px;
+  }
+
+  .custom-control-label::before {
+    position: absolute;
+    background: #99DBF8;
+    border: 1px solid #B8B2B2;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 0px;
+    left: -3.2rem;
+    content: "";
+  }
+
+  .custom-control-label::after {
+    position: absolute;
+    display: block;
+    top: -0.2rem;
+    left: -3.4rem;
+    width: 3rem;
+    height: 3rem;
+    background: no-repeat 50%/50% 50%;
+    content: "";
+  }
+
+  &:hover {
+    .custom-control-label::after {
+      background-image: url("assets/tick-gray.svg");
+    }
+  }
+}
+
+.custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("assets/tick.svg");
+}
