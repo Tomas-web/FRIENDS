@@ -13,7 +13,7 @@ export class LeaderWaitingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToSessionPage() {
+  navigateToSessionPage(): void {
     this.router.navigate(['session']).then();
   }
 

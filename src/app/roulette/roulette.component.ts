@@ -13,7 +13,7 @@ export class RouletteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToHomePage() {
+  goToHomePage(): void {
     this.router.navigate(['home']);
   }
 

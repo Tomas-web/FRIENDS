@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToQuiz() {
+  goToQuiz(): any {
     return this.router.navigate(['session']);
   }
 
-  goToRoulette() {
+  goToRoulette(): any {
     return this.router.navigate(['roulette']);
   }
 

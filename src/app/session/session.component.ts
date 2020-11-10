@@ -17,15 +17,15 @@ export class SessionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToHomePage() {
+  goToHomePage(): void {
     this.router.navigate(['home']).then();
   }
 
-  navigateToWaiting() {
+  navigateToWaiting(): void {
     this.router.navigate(['1/waiting'], {relativeTo: this.route}).then();
   }
 
-  navigateToLeaderWaiting() {
+  navigateToLeaderWaiting(): void {
     this.router.navigate(['1/leader'], {relativeTo: this.route}).then();
   }
 
