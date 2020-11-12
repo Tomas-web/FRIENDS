@@ -6,6 +6,7 @@ import {SessionComponent} from './session/session.component';
 import {WaitingComponent} from './waiting-component/waiting.component';
 import {LeaderWaitingComponent} from './leader-waiting/leader-waiting.component';
 import {SessionStartedComponent} from './session-started/session-started.component';
+import {ResultComponent} from './result/result.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
       {
         path: ':id/started',
         component: SessionStartedComponent,
+      },
+      {
+        path: ':id/result',
+        component: ResultComponent,
       }
     ]
   }

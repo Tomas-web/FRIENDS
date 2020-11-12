@@ -54,9 +54,9 @@ export class SessionStartedComponent implements OnInit {
     }
   }
 
-  public finishQuiz(): void {
+  public finishQuiz(): any {
     if (this.answers[this.question - 1].length > 0) {
-      console.log('Test finished');
+      return this.router.navigate(['../result'], {relativeTo: this.route});
     }
   }
 

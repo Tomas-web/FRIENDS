@@ -10,6 +10,7 @@ import { WaitingComponent } from './waiting-component/waiting.component';
 import { LeaderWaitingComponent } from './leader-waiting/leader-waiting.component';
 import { SessionStartedComponent } from './session-started/session-started.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     RouletteComponent,
     WaitingComponent,
     LeaderWaitingComponent,
-    SessionStartedComponent
+    SessionStartedComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
