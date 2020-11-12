@@ -11,7 +11,8 @@ export class SessionStartedComponent implements OnInit {
 
   question: number;
 
-  types = ['Lithuanian', 'Indian', 'American'];
+  types = ['Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American'];
+  quizQuestions = ['What kind of cuisine would you like to eat?', 'In which neighborhood the restaurant should be?', 'Do you have additional wishes?', 'How much money would you like to spend? (max expenses for 1 person in eur)', 'In what facility type you are interested in?'];
   answers: any[];
   form: FormGroup;
   checkboxGroup: any;
@@ -50,6 +51,12 @@ export class SessionStartedComponent implements OnInit {
     if (this.answers[this.question - 1].length > 0) {
       this.question += 1;
       this.changeQuery({question: this.question});
+    }
+  }
+
+  public finishQuiz(): void {
+    if (this.answers[this.question - 1].length > 0) {
+      console.log('Test finished');
     }
   }
 

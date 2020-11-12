@@ -10,16 +10,18 @@
   </div>
 
   <div class="content">
-    <h2 style="max-width: 850px; margin-top: 2rem; margin-bottom: 5rem;">Only one key friend is enough for a circle of friends to create a common code for other friends to join the survey.</h2>
-    <div class="blocks">
-      <div class="block">
-        <h2 style="margin-bottom: 3rem;">I'm a main friend and I will share the code</h2>
-        <button (click)="navigateToLeaderWaiting()" class="button">CREATE CODE</button>
-      </div>
-      <div class="block">
-        <h2 style="margin-bottom: 1rem;">I'm a friend with a code</h2>
-        <input class="session-input" type="text" placeholder="Enter the code here">
-        <button (click)="navigateToWaiting()" class="button">CONNECT</button>
+    <div class="content-block">
+      <h2 class="title">Only one key friend is enough for a circle of friends to create a common code for other friends to join the survey.</h2>
+      <div class="blocks">
+        <div class="block">
+          <h2 style="margin-bottom: 3rem;">I'm a main friend and I will share the code</h2>
+          <button (click)="navigateToLeaderWaiting()" class="button">CREATE CODE</button>
+        </div>
+        <div class="block">
+          <h2 style="margin-bottom: 1rem;">I'm a friend with a code</h2>
+          <input class="session-input" type="text" placeholder="Enter the code here">
+          <button (click)="navigateToWaiting()" class="button">CONNECT</button>
+        </div>
       </div>
     </div>
   </div>

@@ -32,3 +32,19 @@
     gap: 4rem;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .img-header {
+    height: 35%;
+
+    .header-text {
+      margin-top: 0;
+    }
+  }
+  .content {
+    .buttons {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}

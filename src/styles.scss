@@ -125,7 +125,6 @@ p {
   position: relative;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
   height: 100%;
 
@@ -138,6 +137,7 @@ p {
     text-align: center;
     color: #000000;
     margin-bottom: 0.5rem;
+    margin-top: 0;
   }
 
   h4 {
@@ -161,6 +161,18 @@ p {
     color: #000000;
     margin-bottom: 0.5rem;
     margin-top: 0;
+  }
+
+  .waiting-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .activities-img {
+      margin-bottom: 2rem;
+      width: 846px;
+    }
   }
 }
 
@@ -188,6 +200,7 @@ p {
   .checkbox-grid {
     display: grid;
     gap: 0.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -262,4 +275,75 @@ p {
 
 .custom-control-input:checked ~ .custom-control-label::after {
   background-image: url("assets/tick.svg");
+}
+
+@media only screen and (max-width: 825px) {
+  .quiz-content {
+    .checkbox-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  h2 {
+    font-size: 6vw;
+    line-height: unset;
+  }
+  h1 {
+    font-size: 17vw;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .waiting-content {
+    .waiting-block {
+      .activities-img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .waiting-content {
+    h3 {
+      font-size: 12vw;
+      line-height: unset;
+    }
+
+    h4 {
+      font-size: 11vw;
+      line-height: unset;
+    }
+
+    h5 {
+      font-size: 8.5vw;
+      line-height: unset;
+    }
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  .custom-control {
+    height: unset;
+
+    .custom-control-label {
+      padding: 0;
+    }
+
+    .custom-control-label::before {
+      height: 2rem;
+      width: 2rem;
+      top: -2px;
+    }
+
+    .custom-control-label::after {
+      top: -0.3rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  .quiz-content {
+    .checkbox-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
 }

@@ -9,7 +9,7 @@
 </div>
 
 <div class="quiz-content">
-  <h2 style="margin-bottom: 1rem;">What kind of cuisine would you like to eat?</h2>
+  <h2 style="margin-bottom: 1rem;">{{ quizQuestions[question - 1] }}</h2>
   <form style="margin-bottom: 1rem;" *ngIf="form" novalidate id="form" [formGroup]="form" (ngSubmit)="checkAnswers()">
     <div class="checkbox-grid">
       <div role="menuitem" *ngFor="let control of form?.controls?.answers['controls']; let i = index;"
@@ -25,5 +25,8 @@
       </div>
     </div>
   </form>
-  <button type="submit" form="form" class="button">NEXT</button>
+  <button *ngIf="question < 5; else finish" type="submit" form="form" class="button">NEXT</button>
+  <ng-template #finish>
+    <button (click)="finishQuiz()" class="button">FINISH</button>
+  </ng-template>
 </div>
