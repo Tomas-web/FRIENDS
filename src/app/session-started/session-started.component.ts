@@ -33,6 +33,7 @@ export class SessionStartedComponent implements OnInit {
       if (!this.answers[this.question - 1]) {
         this.answers.push([]);
         this.selectedAnswers = {};
+        this.changeQuery({question: this.question});
       }
 
       this.checkboxGroup = new FormArray((this.types || []).map(item => new FormGroup({
@@ -58,6 +59,11 @@ export class SessionStartedComponent implements OnInit {
     if (this.answers[this.question - 1].length > 0) {
       return this.router.navigate(['../result'], {relativeTo: this.route});
     }
+  }
+
+  public skipQuestion(): void {
+    this.question += 1;
+    this.changeQuery({question: this.question});
   }
 
   public onClickAnswer(answer: any): any {

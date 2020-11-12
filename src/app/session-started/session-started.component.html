@@ -8,25 +8,30 @@
   <h4>CODE: <span class="red">FRN735</span></h4>
 </div>
 
-<div class="quiz-content">
-  <h2 style="margin-bottom: 1rem;">{{ quizQuestions[question - 1] }}</h2>
-  <form style="margin-bottom: 1rem;" *ngIf="form" novalidate id="form" [formGroup]="form" (ngSubmit)="checkAnswers()">
-    <div class="checkbox-grid">
-      <div role="menuitem" *ngFor="let control of form?.controls?.answers['controls']; let i = index;"
-           [formGroup]="control">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" formControlName="checkbox" class="custom-control-input"
-                 [attr.id]="'Group' + i" [attr.name]="'Group' + i"
-                 [checked]="selectedAnswers[control.controls?.name.value]?.selected"
-                 (change)="onClickAnswer(control.controls?.name?.value)" required />
-          <label class="custom-control-label" style="width: 100%;"
-                 [attr.for]="'Group' + i">{{control.controls?.name.value}}</label>
+<div class="quiz-content-position">
+  <div class="quiz-content">
+    <h2 style="margin-bottom: 1rem;">{{ quizQuestions[question - 1] }}</h2>
+    <form style="margin-bottom: 1rem;" *ngIf="form" novalidate id="form" [formGroup]="form" (ngSubmit)="checkAnswers()">
+      <div class="checkbox-grid">
+        <div role="menuitem" *ngFor="let control of form?.controls?.answers['controls']; let i = index;"
+             [formGroup]="control">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" formControlName="checkbox" class="custom-control-input"
+                   [attr.id]="'Group' + i" [attr.name]="'Group' + i"
+                   [checked]="selectedAnswers[control.controls?.name.value]?.selected"
+                   (change)="onClickAnswer(control.controls?.name?.value)" required />
+            <label class="custom-control-label" style="width: 100%;"
+                   [attr.for]="'Group' + i">{{control.controls?.name.value}}</label>
+          </div>
         </div>
       </div>
+    </form>
+    <div class="form-buttons">
+      <button *ngIf="question < 5; else finish" type="submit" form="form" class="button">NEXT</button>
+      <button *ngIf="question === 3" (click)="skipQuestion()" class="button">SKIP</button>
     </div>
-  </form>
-  <button *ngIf="question < 5; else finish" type="submit" form="form" class="button">NEXT</button>
-  <ng-template #finish>
-    <button (click)="finishQuiz()" class="button">FINISH</button>
-  </ng-template>
+    <ng-template #finish>
+      <button (click)="finishQuiz()" class="button">FINISH</button>
+    </ng-template>
+  </div>
 </div>
