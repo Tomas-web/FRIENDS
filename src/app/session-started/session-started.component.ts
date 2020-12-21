@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {RequestsService} from '../core/http/requests.service';
+import {AnswersModel} from '../core/http/model/answers.model';
 
 @Component({
   selector: 'app-session-started',
@@ -10,24 +12,77 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
 export class SessionStartedComponent implements OnInit {
 
   question: number;
+  quizAnswers: AnswersModel[];
+  types: any[];
 
-  types = ['Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American', 'Lithuanian', 'Indian', 'American'];
+  public readonly questionAnswers1 = ['Lithuanian',
+    'Chinese',
+    'Mexican',
+    'Italian',
+    'Japanese',
+    'Indian',
+    'American',
+    'Russian',
+    'Turkish',
+    'French',
+    'Spanish/Portuguese',
+    'Thai'];
+  public readonly questionAnswers2 = ['Antakalnis',
+    'Pašilaičiai',
+    'Fabijoniškės',
+    'Pilaitė',
+    'Justiniškės',
+    'Viršuliškės',
+    'Šnipiškės',
+    'Žirmūnai',
+    'Karoliniškės',
+    'Lazdynai',
+    'Senamiestis',
+    'Naujoji Vilnia'];
+
+  public readonly questionAnswers3 = ['Pet friendly',
+    'For the disabled'];
+
+  public readonly questionAnswers5 = ['Fast food/Street food',
+    'Bar/Pub',
+    'Restaurant',
+    'Pizzeria',
+    'Cafe',
+    'Bakery',
+    'Bistro',
+    'Winery'];
   quizQuestions = ['What kind of cuisine would you like to eat?', 'In which neighborhood the restaurant should be?', 'Do you have additional wishes?', 'How much money would you like to spend? (max expenses for 1 person in eur)', 'In what facility type you are interested in?'];
   answers: any[];
   form: FormGroup;
   checkboxGroup: any;
   selectedAnswers: any;
+  value: number;
+  incorrectValue = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private requestsService: RequestsService) {
     this.question = 1;
     this.answers = [];
     this.selectedAnswers = {};
   }
 
   ngOnInit(): void {
+    this.requestsService.getAnswersForQuiz().subscribe(r => {
+      this.quizAnswers = r;
+    });
     this.route.queryParams.subscribe(params => {
       if (!params.question) {
         this.changeQuery({question: this.question});
+      }
+      if (params.question == 1) {
+        this.types = this.questionAnswers1;
+      } else if (params.question == 2) {
+        this.types = this.questionAnswers2;
+      } else if (params.question == 3) {
+        this.types = this.questionAnswers3;
+      } else if (params.question == 4) {
+        this.types = [];
+      } else if (params.question == 5) {
+        this.types = this.questionAnswers5;
       }
 
       if (!this.answers[this.question - 1]) {
@@ -52,6 +107,12 @@ export class SessionStartedComponent implements OnInit {
     if (this.answers[this.question - 1].length > 0) {
       this.question += 1;
       this.changeQuery({question: this.question});
+    } else if (this.value > 0) {
+      this.incorrectValue = false;
+      this.question += 1;
+      this.changeQuery({question: this.question});
+    } else if (this.value <= 0) {
+      this.incorrectValue = true;
     }
   }
 
@@ -91,5 +152,5 @@ export class SessionStartedComponent implements OnInit {
 }
 
 interface SessionQueryParams {
-  question: number,
+  question: number;
 }

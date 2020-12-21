@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RequestsService} from '../core/http/requests.service';
 
 @Component({
   selector: 'app-roulette',
@@ -8,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class RouletteComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute, private requestsService: RequestsService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,12 @@ export class RouletteComponent implements OnInit {
   }
 
   spin() {
+    setTimeout(() => {
+      this.requestsService.getRandomRestaurant().subscribe(r => {
+        console.log(r);
+      });
+      return this.router.navigate(['../session/FRN735/result'], {relativeTo: this.route});
+    }, 2000);
     const roulette = document.getElementById('roulette');
     roulette.removeAttribute('style');
     const deg = 500 + Math.round(Math.random() * 500);

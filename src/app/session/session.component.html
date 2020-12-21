@@ -19,7 +19,8 @@
         </div>
         <div class="block">
           <h2 style="margin-bottom: 1rem;">I'm a friend with a code</h2>
-          <input class="session-input" type="text" placeholder="Enter the code here">
+          <input class="session-input" type="text" placeholder="Enter the code here" [(ngModel)]="code">
+          <p *ngIf="incorrectCode" style="color: red;">The code is invalid</p>
           <button (click)="navigateToWaiting()" class="button">CONNECT</button>
         </div>
       </div>

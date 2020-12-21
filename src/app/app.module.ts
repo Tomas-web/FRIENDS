@@ -9,8 +9,10 @@ import { RouletteComponent } from './roulette/roulette.component';
 import { WaitingComponent } from './waiting-component/waiting.component';
 import { LeaderWaitingComponent } from './leader-waiting/leader-waiting.component';
 import { SessionStartedComponent } from './session-started/session-started.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResultComponent } from './result/result.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from './core/http/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,17 @@ import { ResultComponent } from './result/result.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
